@@ -1,0 +1,38 @@
+Description of the topic：
+An equation of the form a3 = b 3+ c 3+ d 3 is called a perfect cube. For example, 12 ^ 3 = 6 ^ 3 + 8 ^ 3 + 10 ^ 3. 
+Write a program that looks for all the four-tuples (a, b, c, d) for any positive integer (N ≤ 100). 
+a ^ 3 = b ^ 3 + c ^ 3 + d ^ 3, where a, b, c, d are greater than 1, less than N, and b <= c <= d.
+
+Input
+A positive integer N (N ≤ 100)
+
+Output
+Each line outputs a perfect cube. 
+The format is: Cube = a, Triple(b, c, d) where a, b, c, d are respectively substituted with the actual quaternion values. 
+Requirements: Please output according to the value of a, from small to large. 
+When the values of a in the two perfect cubic equations are the same, the b-value is small and the priority output is still 
+the same, then the c-value is small, and the first output is the same.
+
+
+
+
+AC代码：
+
+#include<iostream>
+#include<cstdio>
+using namespace std;
+
+int main(){
+        int N;
+        scanf("%d", &N);
+        for(int a =2; a<=N; a++)
+                for(int b= 2; b<=a-1; ++b)
+                        for(int c=b; c<=a-1; ++c)
+                                for(int d=c; d<=a-1; ++d)
+                                        if(a*a*a==b*b*b+c*c*c+d*d*d)
+                                                printf("Cube=%d, Triple=( %d,%d,%d)\n", a,b,c,d);
+        return 0; 
+}
+
+Note：
+I reviewed the loop algorithm and got a glimpse of the essence of enumeration.
